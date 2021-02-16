@@ -1,9 +1,0 @@
-.hiddenDesktop {
-  display: initial;
-}
-
-@media (min-width: 768px) {
-  .hiddenDesktop {
-    display: none;
-  }
-}
