@@ -1,41 +1,31 @@
-import "./meyer_reset.css";
+// import "./meyer_reset.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./app.css";
 import React from "react";
 import Nav from "./Nav";
 import Home from "./Home";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import { BrowserRouter, Route } from "react-router-dom";
-import { createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
+import { Container } from "reactstrap";
 
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#000",
-    },
-    text: {
-      primary: "#FFFFFF",
-    },
-  },
-});
 export default () => {
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          <Nav />
+    <BrowserRouter>
+      <div className="d-flex flex-column min-vh-100 bg-secondary">
+        <Nav />
+        <Container className="p-3" fluid>
           <Route exact path="/">
             <Home />
           </Route>
-
           <Route path="/projects">
             <Projects />
           </Route>
           <Route path="/contact">
             <Contact />
           </Route>
-        </BrowserRouter>
-      </ThemeProvider>
-    </>
+        </Container>
+      </div>
+    </BrowserRouter>
   );
 };

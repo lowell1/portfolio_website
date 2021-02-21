@@ -1,45 +1,42 @@
-import React from "react";
-import { AppBar, Toolbar, Typography, Drawer, Link } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles({
-  root: {
-    // backgroundColor: "black",
-    // "& > * > *": {
-    //   color: "white",
-    // },
-    "& > * > * + *": {
-      marginLeft: "1rem",
-    },
-  },
-});
+import React, { useState } from "react";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  Nav,
+  NavItem,
+  NavLink,
+} from "reactstrap";
+import { Link } from "react-router-dom";
 
 export default () => {
-  const classes = useStyles();
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <AppBar className={classes.root} position="static">
-      <Toolbar>
-        <Link color="textPrimary" href="/">
-          Home
-        </Link>
-        <Link color="textPrimary" href="/projects">
-          Projects
-        </Link>
-        <Link color="textPrimary" href="/contact">
-          Contact
-        </Link>
-      </Toolbar>
-    </AppBar>
+    <header className="w-100 position-fixed">
+      <Navbar fixed color="dark" dark expand="sm">
+        <NavbarToggler className="ml-auto" onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="mr-auto" navbar>
+            <NavItem>
+              <NavLink tag={Link} to="/">
+                About
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={Link} to="/projects">
+                Projects
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={Link} to="/contact">
+                Contact
+              </NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
+    </header>
   );
 };
-
-/**
- <Drawer anchor="top" open={true}>
-        <Link href="/">home</Link>
-        {/* <MuiLink component={Link} to="/projects">
-          projects
-        </MuiLink> 
-        <Link href="/projects">projects</Link>
-      </Drawer>
- */
