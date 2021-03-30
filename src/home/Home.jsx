@@ -1,9 +1,11 @@
 import React from "react";
 
+import "./home.scoped.scss";
+
 export default () => {
   return (
-    <>
-      <p>
+    <div>
+      <p className="about">
         But I must explain to you how all this mistaken idea of denouncing
         pleasure and praising pain was born and I will give you a complete
         account of the system, and expound the actual teachings of the great
@@ -19,6 +21,6 @@ export default () => {
         a man who chooses to enjoy a pleasure that has no annoying consequences,
         or one who avoids a pain that produces no resultant pleasure?
       </p>
-    </>
+    </div>
   );
 };

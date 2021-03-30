@@ -3,10 +3,10 @@ import "../styles/global.scss";
 import "./app.scoped.scss";
 import React from "react";
 import Nav from "../nav/Nav";
-import Home from "../Home";
+import Home from "../home/Home";
 import Projects from "../Projects";
 import Contact from "../Contact";
-import Footer from "../Footer";
+import Footer from "../footer/Footer";
 import { BrowserRouter, Route } from "react-router-dom";
 
 export default () => {
