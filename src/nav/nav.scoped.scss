@@ -1,0 +1,77 @@
+@import "../styles/vars";
+$transition-time: 0.1s;
+
+.nav {
+  padding: 1rem;
+
+  .mobile-nav {
+    .nav-toggle {
+      display: flex;
+      justify-content: flex-end;
+
+      svg {
+        width: 2rem;
+        cursor: pointer;
+
+        path {
+          fill: none;
+          stroke: white;
+          stroke-width: 20;
+          d: path(
+            "M0 10 L40 10 L80 10 M0 40 L40 40 L80 40 M0 70 L40 70 L80 70"
+          );
+          transition: d $transition-time;
+
+          &.nav-open {
+            d: path(
+              "M5 10 L40 40 L75 10 M40 40 L40 40 L40 40 M5 70 L40 40 L75 70"
+            );
+          }
+        }
+      }
+    }
+
+    .links {
+      height: 0;
+      transition: height $transition-time;
+      display: flex;
+      position: absolute;
+      left: 0;
+      width: 100vw;
+      justify-content: center;
+      padding: 0.5rem 0;
+
+      &.nav-open {
+        height: 4rem;
+      }
+
+      div {
+        overflow: hidden;
+
+        a {
+          display: block;
+
+          &:not(:last-of-type) {
+            margin-bottom: 0.5rem;
+          }
+        }
+      }
+    }
+
+    @media (min-width: $tablet) {
+      display: none;
+    }
+  }
+
+  .desktop-nav {
+    display: none;
+
+    @media (min-width: $tablet) {
+      display: initial;
+    }
+
+    a {
+      margin-right: 1rem;
+    }
+  }
+}
