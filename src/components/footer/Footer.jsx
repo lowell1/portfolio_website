@@ -1,6 +1,6 @@
 import React from "react";
-import githubLogo from "../images/logos/github.png";
-import linkedinLogo from "../images/logos/linkedin.png";
+import githubLogo from "../../images/logos/github.png";
+import linkedinLogo from "../../images/logos/linkedin.png";
 import "./footer.scoped.scss";
 
 export default () => {

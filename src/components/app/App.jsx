@@ -1,11 +1,11 @@
-import "../styles/meyer_reset.css";
-import "../styles/global.scss";
+import "../../styles/meyer_reset.css";
+import "../../styles/global.scss";
 import "./app.scoped.scss";
 import React from "react";
 import Nav from "../nav/Nav";
 import Home from "../home/Home";
-import Projects from "../Projects";
-import Contact from "../Contact";
+import Projects from "../projects/Projects";
+import Contact from "../../Contact";
 import Footer from "../footer/Footer";
 import { BrowserRouter, Route } from "react-router-dom";
 
