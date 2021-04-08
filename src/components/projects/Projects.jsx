@@ -1,6 +1,7 @@
 import React from "react";
 import comCalImg from "../../images/projects/community_calendar.png";
 import saltyHackersImg from "../../images/projects/salty_hackers.png";
+import "./projects.scoped.scss";
 
 const projectInfo = [
   {
@@ -44,7 +45,7 @@ export default () => {
   return (
     <div className="projects">
       {projectInfo.map((info) => (
-        <div className="card">
+        <div className="project-card">
           <a href={info.siteUrl}>{info.name}</a>
           {info.screenshot && <img src={info.screenshot} alt={info.name} />}
           <p>{info.description}</p>

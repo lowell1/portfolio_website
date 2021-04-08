@@ -1,0 +1,48 @@
+@import "../../styles/vars";
+
+.projects {
+  .project-card {
+    border: 1px solid white;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    //   display: flex;
+    //   flex-direction: column;
+
+    img {
+      width: 100%;
+    }
+    //   a {
+    //     display: inline-block; //link was cutting off border without this
+    //   }
+
+    * {
+      display: inline-block;
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+      //     // width: 100%;
+
+      //     &:not(:last-child)::after {
+      //       content: "";
+      //       // background-color: white;
+      //       border-bottom: 1px solid white;
+      //       // width: 100px;
+      //       // position: absolute;
+      //       //   display: block;
+      //       margin: 1rem;
+      //     }
+    }
+  }
+
+  @media (min-width: $mobile) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .project-card {
+      width: 48%;
+      margin-bottom: 4%;
+    }
+  }
+}
