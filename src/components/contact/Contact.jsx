@@ -20,7 +20,7 @@ export default () => {
         <input placeholder="Enter email" type="email" id="email" />
       </label>
       <label htmlFor="message">Message:</label>
-      <textarea placeholder="Enter message" id="message" />
+      <textarea fixed placeholder="Enter message" id="message" />
       <button>Send</button>
     </form>
   );
