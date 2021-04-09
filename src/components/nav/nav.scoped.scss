@@ -3,6 +3,7 @@ $transition-time: 0.1s;
 
 .nav {
   padding: 1rem;
+  font-size: 1.5rem;
 
   .mobile-nav {
     .nav-toggle {
@@ -42,7 +43,7 @@ $transition-time: 0.1s;
       padding: 1rem 0;
 
       &.nav-open {
-        height: 4rem;
+        height: 6rem;
       }
 
       div {

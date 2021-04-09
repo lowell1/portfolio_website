@@ -5,7 +5,7 @@ import React from "react";
 import Nav from "../nav/Nav";
 import Home from "../home/Home";
 import Projects from "../projects/Projects";
-import Contact from "../../Contact";
+import Contact from "../contact/Contact";
 import Footer from "../footer/Footer";
 import { BrowserRouter, Route } from "react-router-dom";
 
