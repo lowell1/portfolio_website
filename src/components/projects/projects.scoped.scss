@@ -35,7 +35,7 @@
     }
   }
 
-  @media (min-width: $mobile) {
+  @media (min-width: $tablet) {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -43,6 +43,17 @@
     .project-card {
       width: 48%;
       margin-bottom: 4%;
+    }
+  }
+
+  @media (min-width: $desktop) {
+    .project-card {
+      width: 30.67%;
+
+      &:last-child:not(:nth-of-type(3n)) {
+        margin-right: auto;
+        margin-left: 4%;
+      }
     }
   }
 }

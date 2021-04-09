@@ -46,7 +46,11 @@ export default () => {
     <div className="projects">
       {projectInfo.map((info) => (
         <div className="project-card">
-          <a href={info.siteUrl}>{info.name}</a>
+          {info.siteUrl ? (
+            <a href={info.siteUrl}>{info.name}</a>
+          ) : (
+            <p>{info.name}</p>
+          )}
           {info.screenshot && <img src={info.screenshot} alt={info.name} />}
           <p>{info.description}</p>
           <p>stack: {info.stack}</p>
