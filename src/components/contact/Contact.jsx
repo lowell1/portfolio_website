@@ -1,26 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import "./contact.scoped.scss";
 
 export default () => {
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (event) => {
+    setFormState({ ...formState, [event.target.id]: event.target.value });
+  };
+
+  const handleSubmit = () => {
+    // alert(JSON.stringify(formState));
+  };
+
   return (
-    <form className="contact">
-      {/* <label htmlFor="name">Name: </label>
-      <input placeholder="Enter name" id="name" />
-      <label htmlFor="email">Email: </label>
-      <input placeholder="Enter email" type="email" id="email" />
-      <label htmlFor="message">Message:</label>
-      <textarea placeholder="Enter message" id="message" />
-      <button>Send</button> */}
+    <form onSubmit={handleSubmit} className="contact">
       <label>
         Name:
-        <input placeholder="Enter name" id="name" />
+        <input
+          placeholder="Enter name"
+          id="name"
+          value={formState.name}
+          onChange={handleChange}
+        />
       </label>
       <label>
         Email:
-        <input placeholder="Enter email" type="email" id="email" />
+        <input
+          placeholder="Enter email"
+          type="email"
+          id="email"
+          value={formState.email}
+          onChange={handleChange}
+        />
       </label>
       <label htmlFor="message">Message:</label>
-      <textarea fixed placeholder="Enter message" id="message" />
+      <textarea
+        fixed
+        placeholder="Enter message"
+        id="message"
+        value={formState.message}
+        onChange={handleChange}
+      />
       <button>Send</button>
     </form>
   );
