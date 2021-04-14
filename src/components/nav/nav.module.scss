@@ -5,8 +5,8 @@ $transition-time: 0.1s;
   padding: 1rem;
   font-size: 1.5rem;
 
-  .mobile-nav {
-    .nav-toggle {
+  .mobileNav {
+    .navToggle {
       display: flex;
       justify-content: flex-end;
 
@@ -23,7 +23,7 @@ $transition-time: 0.1s;
           );
           transition: d $transition-time;
 
-          &.nav-open {
+          &.navOpen {
             d: path(
               "M5 10 L40 40 L75 10 M40 40 L40 40 L40 40 M5 70 L40 40 L75 70"
             );
@@ -42,8 +42,8 @@ $transition-time: 0.1s;
       justify-content: center;
       padding: 1rem 0;
 
-      &.nav-open {
-        height: 6rem;
+      &.navOpen {
+        height: 8rem;
       }
 
       div {
@@ -64,7 +64,7 @@ $transition-time: 0.1s;
     }
   }
 
-  .desktop-nav {
+  .desktopNav {
     display: none;
 
     @media (min-width: $tablet) {

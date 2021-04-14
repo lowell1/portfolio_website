@@ -1,27 +1,34 @@
-import "./nav.scoped.scss";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import {
+  mobileNav,
+  nav,
+  navToggle,
+  navOpen,
+  links,
+  desktopNav,
+} from "./nav.module.scss";
 
-const links = [
+const linkInfo = [
   { path: "/", name: "About" },
   { path: "/projects", name: "Projects" },
   { path: "/contact", name: "Contact" },
 ];
 
 const MobileNav = () => {
-  const [navOpen, setNavOpen] = useState(false);
-  const toggleNav = () => setNavOpen(!navOpen);
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const toggleNav = () => setIsNavOpen(!isNavOpen);
 
   return (
-    <div className="mobile-nav">
-      <div className="nav-toggle">
+    <div className={mobileNav}>
+      <div className={navToggle}>
         <svg onClick={toggleNav} viewBox="0 0 80 80">
-          <path className={navOpen ? "nav-open" : ""} />
+          <path className={isNavOpen ? navOpen : ""} />
         </svg>
       </div>
-      <div className={`${navOpen ? "nav-open" : ""} links`}>
+      <div className={`${isNavOpen ? navOpen : ""} ${links}`}>
         <div>
-          {links.map(({ path, name }) => (
+          {linkInfo.map(({ path, name }) => (
             <Link key={path} to={path}>
               {name}
             </Link>
@@ -33,43 +40,16 @@ const MobileNav = () => {
 };
 
 export default () => {
-  // const [navOpen, setNavOpen] = useState(false);
-  // const toggleNav = () => setNavOpen(!navOpen);
-
   return (
-    <div className="nav">
+    <div className={nav}>
       <MobileNav />
-      <div className="desktop-nav">
-        {links.map(({ path, name }) => (
+      <div className={desktopNav}>
+        {linkInfo.map(({ path, name }) => (
           <Link key={path} to={path}>
             {name}
           </Link>
         ))}
       </div>
     </div>
-    // <header className="w-100 position-fixed">
-    //   <Navbar fixed color="dark" dark expand="sm">
-    //     <NavbarToggler className="ml-auto" onClick={toggle} />
-    //     <Collapse navOpen={navOpen} navbar>
-    //       <Nav className="mr-auto" navbar>
-    //         <NavItem>
-    //           <NavLink tag={Link} to="/">
-    //             About
-    //           </NavLink>
-    //         </NavItem>
-    //         <NavItem>
-    //           <NavLink tag={Link} to="/projects">
-    //             Projects
-    //           </NavLink>
-    //         </NavItem>
-    //         <NavItem>
-    //           <NavLink tag={Link} to="/contact">
-    //             Contact
-    //           </NavLink>
-    //         </NavItem>
-    //       </Nav>
-    //     </Collapse>
-    //   </Navbar>
-    // </header>
   );
 };

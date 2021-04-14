@@ -1,6 +1,6 @@
 import "../../styles/meyer_reset.css";
 import "../../styles/global.scss";
-import "./app.scoped.scss";
+import { app } from "./app.module.scss";
 import React from "react";
 import Nav from "../nav/Nav";
 import Home from "../home/Home";
@@ -11,7 +11,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 export default () => {
   return (
-    <div className="app">
+    <div className={app}>
       <BrowserRouter>
         <header>
           <Nav />

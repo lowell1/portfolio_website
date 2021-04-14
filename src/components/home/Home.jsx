@@ -1,11 +1,9 @@
 import React from "react";
 
-import "./home.scoped.scss";
-
 export default () => {
   return (
     <div>
-      <p className="about">
+      <p>
         But I must explain to you how all this mistaken idea of denouncing
         pleasure and praising pain was born and I will give you a complete
         account of the system, and expound the actual teachings of the great

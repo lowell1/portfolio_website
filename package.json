@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@craco/craco": "^6.1.1",
-    "craco-plugin-scoped-css": "^1.1.1",
-    "install": "^0.13.0",
     "node-sass": "^5.0.0",
     "npm": "^7.5.4",
     "react": "^17.0.1",
@@ -14,8 +11,8 @@
     "react-scripts": "4.0.2"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build"
+    "start": "react-scripts start",
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [

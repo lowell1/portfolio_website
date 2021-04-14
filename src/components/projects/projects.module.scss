@@ -1,7 +1,7 @@
 @import "../../styles/vars";
 
 .projects {
-  .project-card {
+  .projectCard {
     border: 1px solid white;
     margin-bottom: 1rem;
     padding: 1rem;
@@ -40,14 +40,14 @@
     flex-wrap: wrap;
     justify-content: space-between;
 
-    .project-card {
+    .projectCard {
       width: 48%;
       margin-bottom: 4%;
     }
   }
 
   @media (min-width: $desktop) {
-    .project-card {
+    .projectCard {
       width: 30.67%;
 
       &:last-child:not(:nth-of-type(3n)) {

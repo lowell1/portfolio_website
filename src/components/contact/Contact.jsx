@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./contact.scoped.scss";
+import { contact } from "./contact.module.scss";
 
 export default () => {
   const [formState, setFormState] = useState({
@@ -17,7 +17,7 @@ export default () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="contact">
+    <form onSubmit={handleSubmit} className={contact}>
       <label>
         Name:
         <input
