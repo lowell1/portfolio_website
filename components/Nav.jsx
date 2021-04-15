@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import Link from "next/link";
 import {
   mobileNav,
   nav,
@@ -7,7 +7,7 @@ import {
   navOpen,
   links,
   desktopNav,
-} from "./nav.module.scss";
+} from "../styles/nav.module.scss";
 
 const linkInfo = [
   { path: "/", name: "About" },
@@ -29,7 +29,7 @@ const MobileNav = () => {
       <div className={`${isNavOpen ? navOpen : ""} ${links}`}>
         <div>
           {linkInfo.map(({ path, name }) => (
-            <Link key={path} to={path}>
+            <Link key={path} href={path}>
               {name}
             </Link>
           ))}
@@ -45,7 +45,7 @@ export default () => {
       <MobileNav />
       <div className={desktopNav}>
         {linkInfo.map(({ path, name }) => (
-          <Link key={path} to={path}>
+          <Link key={path} href={path}>
             {name}
           </Link>
         ))}

@@ -1,7 +1,6 @@
-import React from "react";
-import comCalImg from "../../images/projects/community_calendar.png";
-import saltyHackersImg from "../../images/projects/salty_hackers.png";
-import { projects, projectCard } from "./projects.module.scss";
+// import comCalImg from "../public/images/projects/community_calendar.png";
+// import saltyHackersImg from "../public/images/projects/salty_hackers.png";
+import { projects, projectCard } from "../styles/projects.module.scss";
 
 const projectInfo = [
   {
@@ -9,7 +8,7 @@ const projectInfo = [
     siteUrl: "https://cc-production.netlify.app/",
     frontEndRepoUrl:
       "https://github.com/Lambda-School-Labs/community-calendar-fe",
-    screenshot: comCalImg,
+    screenshot: "community_calendar.png",
     description:
       "Create incredible neighborhoods and community spaces through meaningful shared events. A React client for the Community Calendar platform. Allows users to find events near them from multiple datasources, including our own database of user-generated content and several external APIs.",
     // role: `Used the Bulma CSS framework and Node Sass create responsive web pages
@@ -32,7 +31,7 @@ const projectInfo = [
       "https://lowell1.github.io/bw-saltiest-hacker-news-marketing/index.html",
     frontEndRepoUrl:
       "https://github.com/lowell1/bw-saltiest-hacker-news-marketing",
-    screenshot: saltyHackersImg,
+    screenshot: "salty_hackers.png",
     description:
       "System for teachers to create and automatically grade tests for students.",
     // role: `Helped design database structure
@@ -44,14 +43,16 @@ const projectInfo = [
 export default () => {
   return (
     <div className={projects}>
-      {projectInfo.map((info) => (
-        <div className={projectCard}>
+      {projectInfo.map((info, idx) => (
+        <div key={idx} className={projectCard}>
           {info.siteUrl ? (
             <a href={info.siteUrl}>{info.name}</a>
           ) : (
             <p>{info.name}</p>
           )}
-          {info.screenshot && <img src={info.screenshot} alt={info.name} />}
+          {info.screenshot && (
+            <img src={`/images/projects/${info.screenshot}`} alt={info.name} />
+          )}
           <p>{info.description}</p>
           <p>stack: {info.stack}</p>
         </div>

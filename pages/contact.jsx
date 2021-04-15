@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { contact } from "./contact.module.scss";
+import { useState } from "react";
+import { contact } from "../styles/contact.module.scss";
 
 export default () => {
   const [formState, setFormState] = useState({
