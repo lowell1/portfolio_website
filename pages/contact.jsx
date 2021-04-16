@@ -30,19 +30,15 @@ export default () => {
             body: JSON.stringify(values),
           })
             .then((response) => {
-              if (response.ok) {
-                setStatus(null);
-              } else {
-                setStatus(
-                  `Sorry, an error occured sending the message: http status ${response.status}`
-                );
-              }
+              response.json().then((val) => setStatus(val.message));
             })
-            .catch(() => {
-              setStatus("Sorry, an error occured sending the message");
-              // console.dir(error);
+            .catch((response) => {
+              response.json().then((val) => setStatus(val.message));
             })
-            .finally(() => setSubmitting(false));
+            .finally((res) => {
+              console.log(res);
+              setSubmitting(false);
+            });
         }}
       >
         {({ isSubmitting, isValidating, status }) => (
@@ -77,10 +73,14 @@ export default () => {
               placeholder="Enter message"
               as="textarea"
             />
-            {status && <div className={httpErrMsg}>{status}</div>}
             <button disabled={isSubmitting || isValidating} type="submit">
               Send
             </button>
+            {isSubmitting || isValidating ? (
+              <div className={httpErrMsg}>Sending...</div>
+            ) : (
+              status && <div className={httpErrMsg}>{status}</div>
+            )}
           </Form>
         )}
       </Formik>
