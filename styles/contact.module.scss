@@ -5,7 +5,20 @@
   width: 90vw;
   flex-direction: column;
 
-  * {
+  .errMsg {
+    // margin-left: 0.5rem;
+    color: red;
+    &::before {
+      content: " ";
+    }
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  > * {
     margin-bottom: 1rem;
   }
 
@@ -18,35 +31,119 @@
     resize: vertical;
   }
 
-  label input {
-    display: block;
-    width: 100%;
-    margin-top: 0.5rem;
+  label {
+    margin-bottom: 0.5rem;
   }
 
-  @media (min-width: $tablet) {
+  // label input {
+  //   display: block;
+  //   width: 100%;
+  //   margin-top: 0.5rem;
+  // }
+
+  @media (min-width: $desktop) {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
 
-    label {
-      display: flex;
-      align-items: center;
-      width: 48%;
-
-      input {
-        margin-left: 1rem;
-      }
+    > * {
+      margin-bottom: 3rem;
     }
+
+    // label {
+    //   display: flex;
+    //   align-items: center;
+    //   width: 48%;
+
+    //   input {
+    //     margin-left: 1rem;
+    //   }
+    // }
 
     label[for="message"] {
       width: 100%;
-      margin-top: 3rem;
     }
+
+    .wrapper {
+      width: 48%;
+      flex-direction: row;
+      align-items: flex-start;
+      // justify-content: space-between;
+
+      label {
+        margin-bottom: 0;
+        // min-width: 12rem;
+      }
+
+      // .errMsg {
+      // display: inline-block;
+      // margin-left: 0;
+      // }
+
+      input {
+        flex-grow: 1;
+        margin-left: 0.5rem;
+      }
+    }
+
+    // label[for="message"] {
+    //   width: 100%;
+    //   // margin-top: 3rem;
+    // }
 
     textarea {
       width: 100%;
-      margin-bottom: 3rem;
+      // margin-bottom: 3rem;
     }
   }
 }
+// .contact {
+//   display: flex;
+//   width: 90vw;
+//   flex-direction: column;
+
+//   * {
+//     margin-bottom: 1rem;
+//   }
+
+//   button {
+//     align-self: flex-start;
+//   }
+
+//   textarea {
+//     height: 25vh;
+//     resize: vertical;
+//   }
+
+//   label input {
+//     display: block;
+//     width: 100%;
+//     margin-top: 0.5rem;
+//   }
+
+//   @media (min-width: $tablet) {
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     justify-content: space-between;
+
+//     label {
+//       display: flex;
+//       align-items: center;
+//       width: 48%;
+
+//       input {
+//         margin-left: 1rem;
+//       }
+//     }
+
+//     label[for="message"] {
+//       width: 100%;
+//       margin-top: 3rem;
+//     }
+
+//     textarea {
+//       width: 100%;
+//       margin-bottom: 3rem;
+//     }
+//   }
+// }
