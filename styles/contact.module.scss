@@ -5,7 +5,11 @@
   width: 90vw;
   flex-direction: column;
 
-  .errMsg {
+  .httpErrMsg {
+    width: 100%;
+  }
+
+  .fieldErrMsg {
     // margin-left: 0.5rem;
     color: red;
     &::before {

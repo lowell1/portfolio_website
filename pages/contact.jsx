@@ -1,4 +1,9 @@
-import { contact, wrapper, errMsg } from "../styles/contact.module.scss";
+import {
+  contact,
+  wrapper,
+  fieldErrMsg,
+  httpErrMsg,
+} from "../styles/contact.module.scss";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
@@ -16,19 +21,36 @@ export default () => {
       <Formik
         initialValues={{ name: "", email: "", message: "" }}
         validationSchema={formSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+        onSubmit={(values, { setSubmitting, setStatus }) => {
+          fetch("/api/send_email", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json;charset=utf-8",
+            },
+            body: JSON.stringify(values),
+          })
+            .then((response) => {
+              if (response.ok) {
+                setStatus(null);
+              } else {
+                setStatus(
+                  `Sorry, an error occured sending the message: http status ${response.status}`
+                );
+              }
+            })
+            .catch(() => {
+              setStatus("Sorry, an error occured sending the message");
+              // console.dir(error);
+            })
+            .finally(() => setSubmitting(false));
         }}
       >
-        {({ isSubmitting }) => (
+        {({ isSubmitting, isValidating, status }) => (
           <Form className={contact}>
             <div className={wrapper}>
               <label htmlFor="name">
                 Name*
-                <span className={errMsg}>
+                <span className={fieldErrMsg}>
                   <ErrorMessage name="name" />
                 </span>
               </label>
@@ -37,7 +59,7 @@ export default () => {
             <div className={wrapper}>
               <label>
                 Email*
-                <span className={errMsg}>
+                <span className={fieldErrMsg}>
                   <ErrorMessage name="email" />
                 </span>
               </label>
@@ -45,7 +67,7 @@ export default () => {
             </div>
             <label htmlFor="message">
               Message*
-              <span className={errMsg}>
+              <span className={fieldErrMsg}>
                 <ErrorMessage name="message" />
               </span>
             </label>
@@ -55,7 +77,8 @@ export default () => {
               placeholder="Enter message"
               as="textarea"
             />
-            <button disabled={isSubmitting} type="submit">
+            {status && <div className={httpErrMsg}>{status}</div>}
+            <button disabled={isSubmitting || isValidating} type="submit">
               Send
             </button>
           </Form>
