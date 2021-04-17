@@ -4,19 +4,20 @@ const nodemailer = require("nodemailer");
 
 export default (req, res) => {
   const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: process.env.EMAIL_PORT,
-    secure: process.env.EMAIL_PORT === 465,
+    // host: process.env.SMTP_HOST,
+    // port: process.env.SMTP_PORT,
+    // secure: process.env.SMTP_PORT === 465,
+    service: "sendgrid",
     auth: {
-      user: process.env.EMAIL_USERNAME,
-      pass: process.env.EMAIL_PASSWORD,
+      user: process.env.SMTP_USERNAME,
+      pass: process.env.SMTP_PASSWORD,
     },
   });
 
   transporter
     .sendMail({
       from: req.body.email,
-      to: process.env.EMAIL_ADDRESS,
+      to: process.env.SMTP_ADDRESS,
       subject: "lol",
       text: req.body.message,
     })
